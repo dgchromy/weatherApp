@@ -63,4 +63,22 @@ showWeather = (city) => {
         
     });
 })
+    .then(function(response) {
+        var icon1 = 'http://openweathermap.org/img/w/' + response.list[1].weather[0].icon + '.png';
+        var icon2 = 'http://openweathermap.org/img/w/' + response.list[9].weather[0].icon + '.png';
+        var icon3 = 'http://openweathermap.org/img/w/' + response.list[17].weather[0].icon + '.png';
+        var icon4 = 'http://openweathermap.org/img/w/' + response.list[25].weather[0].icon + '.png';
+        var icon5 = 'http://openweathermap.org/img/w/' + response.list[33].weather[0].icon + '.png';
 
+        var date1 = response.list[1].dt_txt;
+        var date2 = response.list[9].dt_txt;
+        var date3 = response.list[17].dt_txt;
+        var date4 = response.list[25].dt_txt;
+        var date5 = response.list[33].dt_txt;
+
+        $('#first #date1').html('<h5>' + moment(date1).format('M-DD-YYYY') + '<h5>');
+        $('#first #icon1').html('<img src=' + icon1 + '>');
+        $('#first #temp1').text('Temp: ' + ((response.list[1].main.temp - 273.15) * 1.8 + 32).toFixed(2) + '°F');
+        $('#first #humidity1').text('Humidity: ' + response.list[1].main.humidity);
+
+    }
