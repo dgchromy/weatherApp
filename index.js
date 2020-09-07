@@ -31,6 +31,36 @@ showWeather = (city) => {
         method: 'GET'
     })
     .then(function(response){
+        var icon ='https://api.openweathermap.org/img/w/' + response.weather[0].icon + '.png';
+        $('.city-name').html('<h1>' + response.name + '<img src=' + icon + '>' + '</h1>');
+        $('.currentDate').text(moment().format('M-DD-YYYY'));
+        $('#temp').text('Tempature:' + response.main.temp + '°F');
+        $('#humidity').text('Humidity:' + response.main.humidity + '%');
+        $('#wind').text('wind Speed:' + response.wind.speed + 'MPH');
+
+        var uvUrl = 'https://api.openweathermap.org/data/2.5/uvi?appid=' + APIKey + '&lat=' + response.coord.lat + '&lon=' + response.coord.lat;
+        $.ajax({
+            url: uvUrl,
+            method: 'GET'    
+        })
+        .then(function (uvResponse) {
+            var uvIndex = uvResponse.value;
+            var uvColor = '';
+            if (uvIndex < 3) {
+                uvColor = 'green';
+            } else if (uvIndex < 6){
+              uvColor = 'yellow';
+            } else if (uvIndex < 8){
+                uvColor = 'orange';
+            } else if (uvIndex < 11){
+                uvColor = 'red';
+            } else {
+                uvColor = 'violet'
+            }
+            $('#uv-index').text('Uv-Index': + uvIndex);
+            $('#uv-index').attr('style', 'background-color:' + uvColor); 
+            
         
-    })
-}
+    });
+})
+
