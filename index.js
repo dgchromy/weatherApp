@@ -81,4 +81,48 @@ showWeather = (city) => {
         $('#first #temp1').text('Temp: ' + ((response.list[1].main.temp - 273.15) * 1.8 + 32).toFixed(2) + '°F');
         $('#first #humidity1').text('Humidity: ' + response.list[1].main.humidity);
 
+        $('#second #date2').html('<h5>' + moment(date2).format('M-DD-YYYY') + '<h5>');
+        $('#second #icon2').html('<img src=' + icon1 + '>');
+        $('#second #temp2').text('Temp: ' + ((response.list[9].main.temp - 273.15) * 1.8 + 32).toFixed(2) + '°F');
+        $('#second #humidity2').text('Humidity: ' + response.list[9].main.humidity);
+
+        $('#third #date3').html('<h5>' + moment(date3).format('M-DD-YYYY') + '<h5>');
+        $('#third #icon3').html('<img src=' + icon1 + '>');
+        $('#third #temp3').text('Temp: ' + ((response.list[17].main.temp - 273.15) * 1.8 + 32).toFixed(2) + '°F');
+        $('#third#humidity3').text('Humidity: ' + response.list[17].main.humidity);
+
+        $('#four #date4').html('<h5>' + moment(date4).format('M-DD-YYYY') + '<h5>');
+        $('#four #icon4').html('<img src=' + icon1 + '>');
+        $('#four #temp4').text('Temp: ' + ((response.list[25].main.temp - 273.15) * 1.8 + 32).toFixed(2) + '°F');
+        $('#four #humidity4').text('Humidity: ' + response.list[25].main.humidity);
+
+        $('#five #date5').html('<h5>' + moment(date5).format('M-DD-YYYY') + '<h5>');
+        $('#five #icon5').html('<img src=' + icon1 + '>');
+        $('#five #temp5').text('Temp: ' + ((response.list[33].main.temp - 273.15) * 1.8 + 32).toFixed(2) + '°F');
+        $('#five #humidity5').text('Humidity: ' + response.list[33].main.humidity);
+    })
+}   
+renderSavedCities = (newCities) => {
+    $('.searchedCities').empty();
+    while (newCities.length > 5) {
+        newCities.splice(-1, 1)
     }
+    for (var i = 0; i < newCities.length; i++){
+        listItem = $('<li>');
+        listItem.attr('class', 'list-group-item')
+        listItem.text(newCities[i])
+    
+    }
+}
+$('searchedCities').on('click', '.list-group-item', function (event){
+    event.preventDefault();
+    city = ($(this).text());
+    showWeather(city);
+    console.log(city);
+});
+
+$('.clearBtn').on('click', function(){
+    $('.searchCities').remove();
+    localStorage.clear();
+
+})
