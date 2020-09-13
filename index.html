@@ -2,15 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>weather App</title>
   </head>
   <body>
     <header>
-      <div class = "header">
-        <h1> Weather report</h1>
+      <div class="header">
+        <h1>Weather report</h1>
       </div>
     </header>
     <div class="container">
@@ -20,8 +23,16 @@
             <h2>Search</h2>
           </div>
           <div class="search">
-            <input class="search-field" type="text" onfocus="this.value='' " placeholder="Enter City" name="search">
-            <button class="searchBtn" type="submit"><i class="fas fa-search"></i></button>
+            <input
+              class="search-field"
+              type="text"
+              onfocus="this.value='' "
+              placeholder="Enter City"
+              name="search"
+            />
+            <button class="searchBtn" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
           <div class="searchedCities"></div>
           <button class="clearBtn">Clear history</button>
@@ -38,11 +49,12 @@
             <p id="uv-index"></p>
           </div>
         </div>
-        <div class ="row">
+        <div class="row">
           <span id="5dayForecast" class="5day-forecast"></span>
           <div class="five-forecast">
             <div class="Day">
               <div id="first">
+                <p id="date1"></p>
                 <p id="icon1"></p>
                 <p id="temp1"></p>
                 <p id="humidity1"></p>
@@ -50,6 +62,7 @@
             </div>
             <div class="Day">
               <div id="second">
+                <p id="date2"></p>
                 <p id="icon2"></p>
                 <p id="temp2"></p>
                 <p id="humidity2"></p>
@@ -57,6 +70,7 @@
             </div>
             <div class="Day">
               <div id="third">
+                <p id="date3"></p>
                 <p id="icon3"></p>
                 <p id="temp3"></p>
                 <p id="humidity3"></p>
@@ -64,6 +78,7 @@
             </div>
             <div class="Day">
               <div id="four">
+                <p id="date4"></p>
                 <p id="icon4"></p>
                 <p id="temp4"></p>
                 <p id="humidity4"></p>
@@ -71,6 +86,7 @@
             </div>
             <div class="Day">
               <div id="five">
+                <p id="date5"></p>
                 <p id="icon5"></p>
                 <p id="temp5"></p>
                 <p id="humidity5"></p>
@@ -79,11 +95,12 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <span>&copy; 2020 Donald Chromy</span>
-      </footer>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-      <script src="index.js"></script>
+    </div>
+    <footer class="footer">
+      <span>&copy; 2020 Donald Chromy</span>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
